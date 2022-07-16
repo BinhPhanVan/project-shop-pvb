@@ -41,7 +41,6 @@ export default {
     methods:{
         async getProduct(){
             this.$store.commit('setIsLoading', true)
-            console.log("dhsjdhsdhsjdsjdsds");
             const category_slug = this.$route.params.category_slug
             const product_slug = this.$route.params.product_slug
             await axios.get(`/api/v1/products/${category_slug}/${product_slug}`).then(response=>{
@@ -53,7 +52,6 @@ export default {
             this.$store.commit('setIsLoading', false)
         },
         addToCart(){
-            console.log("Add to cart");
             if(isNaN(this.quantity) || this.quantity < 1){
                 this.quantity = 1
             }

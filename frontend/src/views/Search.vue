@@ -7,6 +7,7 @@
                 </h1>    
                 <h2 class="is-size-5 has-text-grey">Search term: "{{ query }}"</h2>
             </div>
+            <p>{{products}}</p>
             <ProductCard v-for="product in products"
                 :key="product.id"
                 :product="product"/>  
@@ -35,6 +36,7 @@ export default {
         let params= new URLSearchParams(uri)
         if (params.get('query')){
             this.query = params.get('query')
+            console.log(this.query);
             this.performSearch()
         }
     }, 
